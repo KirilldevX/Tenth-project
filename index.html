@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Time tracking dashboard</title>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="cards">
+        <div class="avatar">
+          <div class="ava">
+            <div>
+              <p>Report for</p>
+              <p>Jeremy Robson</p>
+            </div>
+            <img src="images/image-jeremy.png" alt="">
+          </div>
+          <div class="buttons">
+            <button id="daily">Daily</button>
+            <button id="weekly">Weekly</button>
+            <button id="monthly">Monthly</button>
+          </div>
+        </div>
+        <div class="activities">
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let currentTime = 'weekly';
+    let otherTime = [];
+
+    const activities = document.querySelector('.activities');
+
+    daily.onclick = function() {
+      otherTime = ['weekly', 'monthly']
+      currentTime = 'daily';
+      renderCards();
+    };
+
+    weekly.onclick = function() {
+      otherTime = ['daily', 'monthly']
+      currentTime = 'weekly';
+      renderCards();
+    };
+
+    monthly.onclick = function() {
+      otherTime = ['weekly', 'daily']
+      currentTime = 'monthly';
+      renderCards();
+    };
+
+    function renderCards() {
+      activities.innerHTML = '';
+
+      data.forEach(item => {
+        let card = document.createElement('div');
+        card.classList.add('card');
+
+        card.innerHTML = `
+          <div class="container_color ${item.title}">
+            <img src="images/icon-${item.title}.svg" alt="">
+          </div>
+
+          <div class="container_text">
+            <div class="name">
+              <p class="name_title">${item.title}</p>
+              <img src="images/icon-ellipsis.svg" alt="">
+            </div>
+
+            <div class="time">
+              <p class="time_current">
+                ${item.timeframes[currentTime].current}hrs
+              </p>
+              <p class="time_past">
+                Last week - ${item.timeframes[currentTime].previous}hrs
+              </p>
+            </div>
+          </div>
+        `;
+        document.getElementById(currentTime).style.color = 'white'
+        otherTime.forEach(time => {
+          document.getElementById(time).style.color = 'hsl(235, 45%, 61%)'
+        })
+        activities.append(card);
+      });
+    }
+
+    let data;
+
+    fetch('data.json')
+      .then(response => {
+        if (!response.ok) throw new Error('JSON file not found');
+        return response.json();
+      })
+      .then(result => {
+        data = result;
+        renderCards();
+      })
+      .catch(error => console.error(error));
+  </script>
+</body>
+</html>
