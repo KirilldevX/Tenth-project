@@ -4,7 +4,7 @@ My tenth Frontend Mentor project
 
 ## Preview
 
-**Live Site:** (https://newslettersignup-kirilldevx.netlify.app)
+**Live Site:** (https://time-tracking-dashboard-main-sage-one.vercel.app/)
 
 To view the project's source code, clone or download this repository. The main markup is in `index.html`, and the styles are in `style.css`.
 Чтобы посмотреть исходный код проекта, клонируйте этот репозиторий или скачайте его архив. Основная разметка находится в файле index.html, стили — в style.css. 
@@ -27,7 +27,10 @@ KirillDevX
 
 **Desktop:**
 
-
+<img width="2559" height="1307" alt="image" src="https://github.com/user-attachments/assets/2d05c2f7-fe61-426e-a3a8-91d94e4fcd7f" />
 
 **Phone:**
 
+<img width="370" height="662" alt="image" src="https://github.com/user-attachments/assets/2afd1a73-b421-4cc6-b81f-23324183b1da" />
+<img width="373" height="664" alt="image" src="https://github.com/user-attachments/assets/1a8d1f6a-5c71-45f7-aae8-3b7bfd5b8fd8" />
+<img width="372" height="667" alt="image" src="https://github.com/user-attachments/assets/40e8e4ae-d7d1-49ce-83c0-9bb55d6389f8" />
